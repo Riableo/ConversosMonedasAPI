@@ -2,6 +2,7 @@ package com.aluracursos.principal;
 
 import com.aluracursos.modelos.ConsultaDivisa;
 import com.aluracursos.modelos.Currency;
+import com.aluracursos.modelos.FormatNumberCurrency;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,6 +12,7 @@ public class Principal {
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner sc = new Scanner(System.in);
         ConsultaDivisa consultaDivisa = new ConsultaDivisa();
+        FormatNumberCurrency numberFormatCurrency = new FormatNumberCurrency();
         int opcion = 1;
         try {
             while (opcion != 2) {
@@ -33,8 +35,13 @@ public class Principal {
                         double mount = sc.nextDouble();
 
                         Currency conversionResult = consultaDivisa.convertirDivisa(baseCurrency, targetCurrency, mount);
+
+                        // To convert number on own format
+                        String currencyResultFormat = numberFormatCurrency.formatNumberCurrency(conversionResult.conversion_result());
+
                         System.out.println(mount + " " + conversionResult.base_code() + " = "
-                                +conversionResult.conversion_result() + " " + conversionResult.target_code());
+                                + currencyResultFormat  + " " + conversionResult.target_code());
+
                         break;
                     case 2:
                         System.out.println("Saliendo");
