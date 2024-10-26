@@ -1,4 +1,4 @@
-package com.aluracursos.modelos;
+package com.aluracursos.formats;
 
 import java.text.DecimalFormat;
 

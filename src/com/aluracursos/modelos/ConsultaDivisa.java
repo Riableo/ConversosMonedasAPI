@@ -20,7 +20,9 @@ public class ConsultaDivisa {
                 "BRL - Real brasileño",
                 "CLP - Peso chileno",
                 "COP - Peso colombiano",
-                "USD - Dólar estadounidense");
+                "USD - Dólar estadounidense",
+                "EUR - Euro",
+                "GBP - Libra esterlina");
 
         int action = 0;
         List<String> resultListCurrency =new ArrayList<>();

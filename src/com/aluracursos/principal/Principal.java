@@ -2,14 +2,14 @@ package com.aluracursos.principal;
 
 import com.aluracursos.modelos.ConsultaDivisa;
 import com.aluracursos.modelos.Currency;
-import com.aluracursos.modelos.FormatNumberCurrency;
+import com.aluracursos.formats.FormatNumberCurrency;
 
-import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 public class Principal {
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ConsultaDivisa consultaDivisa = new ConsultaDivisa();
         FormatNumberCurrency numberFormatCurrency = new FormatNumberCurrency();
@@ -23,7 +23,7 @@ public class Principal {
                         """);
                 opcion = sc.nextInt();
 
-                switch (opcion){
+                switch (opcion) {
                     case 1:
                         System.out.println("Conversion de monedas");
                         List<String> divisasConvert = consultaDivisa.consultaDivisas();
@@ -40,7 +40,7 @@ public class Principal {
                         String currencyResultFormat = numberFormatCurrency.formatNumberCurrency(conversionResult.conversion_result());
 
                         System.out.println(mount + " " + conversionResult.base_code() + " = "
-                                + currencyResultFormat  + " " + conversionResult.target_code());
+                                + currencyResultFormat + " " + conversionResult.target_code());
 
                         break;
                     case 2:
@@ -50,8 +50,8 @@ public class Principal {
                         System.out.println("Opcion no valida");
                 }
             }
-
-
+        }catch (InputMismatchException e) {
+            System.out.println("ERROR: dato insertado no corresponde al tipo ");
         }catch (RuntimeException e) {
             System.out.println(e.getMessage());
         }
