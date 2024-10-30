@@ -3,17 +3,28 @@ package com.aluracursos.principal;
 import com.aluracursos.modelos.ConsultaDivisa;
 import com.aluracursos.modelos.Currency;
 import com.aluracursos.formats.FormatNumberCurrency;
+import com.aluracursos.modelos.HistorialConversiones;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 public class Principal {
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
+
         ConsultaDivisa consultaDivisa = new ConsultaDivisa();
         FormatNumberCurrency numberFormatCurrency = new FormatNumberCurrency();
+
+        HistorialConversiones historialConversiones = new HistorialConversiones();
+
         int opcion = 1;
+
         try {
             while (opcion != 2) {
                 System.out.println("Seleccione una opción");
@@ -39,8 +50,13 @@ public class Principal {
                         // To convert number on own format
                         String currencyResultFormat = numberFormatCurrency.formatNumberCurrency(conversionResult.conversion_result());
 
-                        System.out.println(mount + " " + conversionResult.base_code() + " = "
-                                + currencyResultFormat + " " + conversionResult.target_code());
+                        String msg = mount + " " + conversionResult.base_code() + " = "
+                                + currencyResultFormat + " " + conversionResult.target_code();
+
+                        System.out.println(msg);
+
+                        // Create log file with time
+                        historialConversiones.historialConversiones(msg);
 
                         break;
                     case 2:
@@ -52,7 +68,7 @@ public class Principal {
             }
         }catch (InputMismatchException e) {
             System.out.println("ERROR: dato insertado no corresponde al tipo ");
-        }catch (RuntimeException e) {
+        }catch (RuntimeException | IOException e) {
             System.out.println(e.getMessage());
         }
         System.out.println("Finalizando aplicacion");
