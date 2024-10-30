@@ -5,10 +5,8 @@ import com.aluracursos.modelos.Currency;
 import com.aluracursos.formats.FormatNumberCurrency;
 import com.aluracursos.modelos.HistorialConversiones;
 
-import java.io.FileWriter;
+
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
