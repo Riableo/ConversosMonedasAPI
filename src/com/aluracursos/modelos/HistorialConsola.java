@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class HistorialConsola {
 
-    private ArrayList<String> conversionHistorial = new ArrayList<String>();
+    private final ArrayList<String> conversionHistorial = new ArrayList<>();
 
-    public void HistorialConsola(String conversion) {
+    public void historialConversionConsole(String conversion) {
 
         conversionHistorial.add(conversion);
 

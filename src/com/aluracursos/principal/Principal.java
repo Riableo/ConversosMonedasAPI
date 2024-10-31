@@ -59,7 +59,7 @@ public class Principal {
                         historialConversiones.historialConversiones(msg);
 
                         // Print in console historial
-                        conversionHistorial.HistorialConsola(msg);
+                        conversionHistorial.historialConversionConsole(msg);
 
                         break;
                     case 2:
