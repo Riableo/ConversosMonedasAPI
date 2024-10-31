@@ -3,6 +3,7 @@ package com.aluracursos.principal;
 import com.aluracursos.modelos.ConsultaDivisa;
 import com.aluracursos.modelos.Currency;
 import com.aluracursos.formats.FormatNumberCurrency;
+import com.aluracursos.modelos.HistorialConsola;
 import com.aluracursos.modelos.HistorialConversiones;
 
 
@@ -20,6 +21,7 @@ public class Principal {
         FormatNumberCurrency numberFormatCurrency = new FormatNumberCurrency();
 
         HistorialConversiones historialConversiones = new HistorialConversiones();
+        HistorialConsola conversionHistorial = new HistorialConsola();
 
         int opcion = 1;
 
@@ -55,6 +57,9 @@ public class Principal {
 
                         // Create log file with time
                         historialConversiones.historialConversiones(msg);
+
+                        // Print in console historial
+                        conversionHistorial.HistorialConsola(msg);
 
                         break;
                     case 2:
