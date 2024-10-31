@@ -2,7 +2,6 @@ package com.aluracursos.modelos;
 
 import com.google.gson.Gson;
 
-import javax.annotation.processing.ProcessingEnvironment;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -11,8 +10,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-
-import static java.lang.System.exit;
 
 public class ConsultaDivisa {
 
