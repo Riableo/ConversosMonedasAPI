@@ -34,9 +34,16 @@ public class ConsultaDivisa {
             }
 
             int currBase = sc.nextInt();
-            System.out.println("Moneda a convertir: " + divisas.get(currBase-1));
-            resultListCurrency.add(divisas.get(currBase-1).substring(0,3));
-            action++;
+
+            if (currBase <= divisas.size()){
+                String msg = action == 0 ? "Moneda a convertir: " : "Conversion a: ";
+                System.out.println(msg + divisas.get(currBase-1));
+                resultListCurrency.add(divisas.get(currBase-1).substring(0,3));
+                action++;
+            }else {
+                System.out.println("Ingrese un número dentro del rango 1 - " + divisas.size());
+            }
+
         }
 
         return resultListCurrency;
