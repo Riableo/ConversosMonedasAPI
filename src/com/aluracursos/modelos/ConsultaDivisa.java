@@ -2,6 +2,7 @@ package com.aluracursos.modelos;
 
 import com.google.gson.Gson;
 
+import javax.annotation.processing.ProcessingEnvironment;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -11,7 +12,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import static java.lang.System.exit;
+
 public class ConsultaDivisa {
+
+    private final String API_KEY_EXCHANGE = System.getenv("API_KEY_EXCHANGE");
 
     public List<String> consultaDivisas(){
         Scanner sc = new Scanner(System.in);
@@ -50,7 +55,7 @@ public class ConsultaDivisa {
     }
 
     public Currency convertirDivisa(String divisaConvetir, String divisaResultado, double mount) {
-        String direcccionURL = "https://v6.exchangerate-api.com/v6/059bc03a7082d034552de7e1/pair/" + divisaConvetir + "/" + divisaResultado + "/" + mount;
+        String direcccionURL = "https://v6.exchangerate-api.com/v6/"+API_KEY_EXCHANGE+"/pair/" + divisaConvetir + "/" + divisaResultado + "/" + mount;
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()

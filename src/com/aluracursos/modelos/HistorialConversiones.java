@@ -16,13 +16,12 @@ public class HistorialConversiones {
         File f = new File("historial_conversiones.txt");
 
         if (!f.exists()) {
-            System.out.println("Not exists file ");
 
             FileWriter archivoConversiones = new FileWriter("historial_conversiones.txt");
             archivoConversiones.write("["+dateFormat+"]" + " " + message);
             archivoConversiones.close();
         }else {
-            System.out.println("Exists file ");
+
             // Create log file with time
             FileWriter fw = new FileWriter("historial_conversiones.txt", true);
             fw.write("\n["+dateFormat+"]" + " " + message);
